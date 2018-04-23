@@ -1,0 +1,21 @@
+--- # COMMAND MODULE EXAMPLE
+
+- hosts: slave
+
+  user: user
+
+  become: yes
+
+  connection: ssh
+
+  gather_facts: no
+
+  tasks:
+
+    - name: running the shell command
+
+      command: /home/user/testing/test.sh
+
+      args:
+
+        chdir: /home/user/testing

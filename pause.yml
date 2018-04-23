@@ -1,0 +1,16 @@
+--- 
+
+- hosts: slave
+  become: yes
+  gather_facts: no
+  tasks:
+
+  - name: Install apache2
+    action: apt name=apache2 state=present
+
+  - name: Pausing
+    pause:
+      prompt: Press ENTER to Continue...
+
+  - name: Verify lynx installation
+    action: apt name=lynx state=present

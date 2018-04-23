@@ -1,0 +1,9 @@
+---
+- hosts: slave
+  become: yes
+  become_user: root
+  gather_facts: no
+  connection: ssh
+  tasks:
+    - name: install nginx
+      action: apt name=nginx state=present

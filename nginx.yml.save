@@ -1,0 +1,15 @@
+---
+- hosts: slave
+  become: yes
+  become_user: root
+  tasks:
+    - name: Setup nginx conf
+      template:
+        src=nginx.conf.tpl
+        dest=/etc/nginx/nginx.conf
+      notify: restart nginx
+  handlers:
+    - name: restart nginx
+      service:
+        name=nginx
+        state=started

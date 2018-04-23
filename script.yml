@@ -1,0 +1,14 @@
+--- # SCRIPT MODULE EXAMPLE
+
+- hosts: slave
+
+  user: user
+
+  connection: ssh
+
+  become: yes
+
+  gather_facts: no
+
+  tasks:
+    - script: /home/user/playbooks/script.sh creates=/home/user/scripting.txt

@@ -1,0 +1,25 @@
+--- # testLoop Playbook Example
+
+- hosts: slave
+
+  user: user
+
+  become: yes
+
+  connection: ssh
+
+  gather_facts: no
+
+  tasks:
+
+    - name: Add a list of users
+
+      command: /home/user/{{ item }}
+
+      with_items:
+
+        - test1.sh
+
+        - test2.sh
+
+        - test3.sh

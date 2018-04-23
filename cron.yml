@@ -1,0 +1,15 @@
+--- # CRON MODULE EXAMPLE
+
+- hosts: slave
+
+  user: user
+
+  connection: ssh
+
+  gather_facts: no
+
+  tasks:
+
+    - name: Add a CRON Job to the Test User
+
+      cron: name="list dirs" minute="14" hour="2" job="ls -al /var/log > /home/user/cron.log"

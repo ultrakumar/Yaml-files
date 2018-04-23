@@ -1,0 +1,17 @@
+--- # SHELL MODULE EXAMPLE
+
+- hosts: slave
+
+  user: user
+
+  become: sudo
+
+  connection: ssh
+
+  gather_facts: no
+
+  tasks:
+
+    - name: Executing a remote command - uptime
+
+      shell: /usr/bin/uptime >> uptime.log

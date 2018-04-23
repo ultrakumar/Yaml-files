@@ -1,0 +1,13 @@
+---
+
+- hosts: slave
+
+  become: yes
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Uninstall tomcat
+
+    action: apt name=tomcat8 state=absent

@@ -1,0 +1,27 @@
+--- # DEBUG MODULE EXAMPLE
+
+- hosts: slave
+
+  user: user
+
+  become: yes
+
+  connection: ssh
+
+  gather_facts: no
+
+  tasks:
+
+    - name: Install web server
+
+      apt: name=apache2 state=present
+
+    - debug: msg="Equivalent of sudo apt install httpd"
+
+    - name: How Long has the system been up?
+
+      shell: /usr/bin/uptime
+
+      register: result
+
+    - debug: var=result
